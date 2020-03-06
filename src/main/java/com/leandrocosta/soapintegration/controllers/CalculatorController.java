@@ -18,7 +18,25 @@ public class CalculatorController {
     @GetMapping("/addition")
     public ResponseEntity getAddition(@RequestParam final Integer firstOperand,
                                       @RequestParam  final Integer secondOperand) {
-        return ResponseEntity.ok(calculatorService.getAddResult(firstOperand, secondOperand));
+        return ResponseEntity.ok(calculatorService.getAdditionResult(firstOperand, secondOperand));
+    }
+
+    @GetMapping("/subtraction")
+    public ResponseEntity getSubtraction(@RequestParam final Integer firstOperand,
+                                      @RequestParam  final Integer secondOperand) {
+        return ResponseEntity.ok(calculatorService.getSubtactionResult(firstOperand, secondOperand));
+    }
+
+    @GetMapping("/multiplication")
+    public ResponseEntity getMultiplication(@RequestParam final Integer firstOperand,
+                                      @RequestParam  final Integer secondOperand) {
+        return ResponseEntity.ok(calculatorService.getMultiplicationResult(firstOperand, secondOperand));
+    }
+
+    @GetMapping("/division")
+    public ResponseEntity getDivision(@RequestParam final Integer firstOperand,
+                                      @RequestParam  final Integer secondOperand) {
+        return ResponseEntity.ok(calculatorService.getDivisionResult(firstOperand, secondOperand));
     }
 
 }
