@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.xml.bind.JAXBException;
-
 @RestController
 @RequestMapping(value = "/api/calculator")
 public class CalculatorController {
@@ -18,8 +16,8 @@ public class CalculatorController {
     CalculatorService calculatorService;
 
     @GetMapping("/addition")
-    public ResponseEntity getAddition(@RequestParam Integer firstOperand, @RequestParam  Integer secondOperand)
-            throws JAXBException {
+    public ResponseEntity getAddition(@RequestParam final Integer firstOperand,
+                                      @RequestParam  final Integer secondOperand) {
         return ResponseEntity.ok(calculatorService.getAddResult(firstOperand, secondOperand));
     }
 
