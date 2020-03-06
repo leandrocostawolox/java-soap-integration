@@ -1,0 +1,61 @@
+#%RAML 1.0
+title: Calculator REST service
+version: v1
+protocols: [ HTTP ]
+baseUri: http://localhost:8080/api/calculator
+mediaType: application/json
+
+types:
+  Add: !include types/BasicOperation.raml
+  Substract: !include types/BasicOperation.raml
+  Multiply: !include types/BasicOperation.raml
+  Divide: !include types/BasicOperation.raml
+
+/addition:
+  get:
+    description: Perform an add operation between the firstOperand and the secondOperand
+    queryParameters:
+      fistOperand: integer
+      secondOperand: integer
+    responses:
+      200:
+        body:
+          application/json:
+            type: AddResponse
+            example: { "addResult": 3}
+/subtraction:
+  get:
+    description: Perform a subtract operation between the firstOperand and the secondOperand
+    queryParameters:
+      fistOperand: integer
+      secondOperand: integer
+    responses:
+      200:
+        body:
+          application/json:
+            type: SubtractResponse
+            example: { "subtractResult": 3}
+/multiplication:
+  get:
+    description: Perform a multiply operation between the firstOperand and the secondOperand
+    queryParameters:
+      fistOperand: integer
+      secondOperand: integer
+    responses:
+      200:
+        body:
+          application/json:
+            type: MultiplyResponse
+            example: { "multiplyResult": 3}
+/division:
+  get:
+    description: Perform a divide operation between the firstOperand and the secondOperand
+    queryParameters:
+      fistOperand: integer
+      secondOperand: integer
+    responses:
+      200:
+        body:
+          application/json:
+            type: DivideResponse
+            example: { "divideResult": 3}
